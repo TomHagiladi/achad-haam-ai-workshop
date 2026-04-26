@@ -125,7 +125,16 @@
           <div class="idea__tags">${tags}</div>
           <h3 class="idea__title">${escapeHTML(idea.title)}</h3>
           <p class="idea__desc">${escapeHTML(idea.desc)}</p>
-          <p class="idea__prompt"><strong>טעימה לפרומפט:</strong> ${idea.prompt}</p>
+          <div class="idea__prompt-box">
+            <div class="idea__prompt-label">פרומפט מוכן להעתקה</div>
+            <div class="idea__prompt-text">${escapeHTML(idea.prompt)}</div>
+            <button type="button" class="prompt-box__copy idea__copy" data-copy="${escapeHTML(idea.prompt)}" aria-label="העתק פרומפט">
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M16 1H4a2 2 0 00-2 2v14h2V3h12V1zm3 4H8a2 2 0 00-2 2v14a2 2 0 002 2h11a2 2 0 002-2V7a2 2 0 00-2-2zm0 16H8V7h11v14z" fill="currentColor"/>
+              </svg>
+              <span>העתק פרומפט</span>
+            </button>
+          </div>
         </article>`;
       })
       .join("");

@@ -184,12 +184,13 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   gap: var(--gap-3);
 }
 .brand__logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  object-fit: contain;
   background: var(--bg-deep);
-  border: 2px solid var(--line);
+  border: 1.5px solid var(--line);
+  padding: 2px;
 }
 .brand__text {
   display: flex;
@@ -879,15 +880,42 @@ main {
   font-size: var(--fs-sm);
   line-height: 1.55;
 }
-.idea__prompt {
+.idea__prompt-box {
   margin-top: auto;
-  padding-top: var(--gap-2);
-  border-top: 1px dashed var(--line);
-  font-size: var(--fs-xs);
-  color: var(--ink-mute);
-  font-style: italic;
+  padding: var(--gap-3);
+  background: var(--bg);
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-2);
 }
-.idea__prompt strong { color: var(--accent-deep); font-style: normal; }
+.idea__prompt-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-deep);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.idea__prompt-text {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--ink);
+  white-space: pre-wrap;
+  max-height: 9.5em;
+  overflow-y: auto;
+  padding-left: 2px;
+}
+.idea__prompt-text::-webkit-scrollbar { width: 6px; }
+.idea__prompt-text::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 3px;
+}
+.idea__copy {
+  align-self: flex-start;
+  font-size: 0.75rem !important;
+  padding: 0.3rem 0.65rem !important;
+}
 
 .no-results {
   grid-column: 1 / -1;
