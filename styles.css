@@ -199,9 +199,10 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 }
 .brand__name {
   font-family: "Suez One", serif;
-  font-size: var(--fs-md);
+  font-size: var(--fs-base);
   color: var(--ink);
   letter-spacing: -0.01em;
+  line-height: 1.15;
 }
 .brand__tag {
   font-size: var(--fs-xs);
@@ -603,6 +604,81 @@ main {
 }
 
 /* ==========================================================
+   9b. Ministry of Education callout
+   ========================================================== */
+.moe-note {
+  margin-top: var(--gap-5);
+  background: linear-gradient(135deg, #E8F1E5 0%, #D6E8D2 100%);
+  border: 1.5px solid #4F8A4A;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: box-shadow 0.3s var(--ease-out);
+}
+.moe-note[open] {
+  box-shadow: 0 8px 22px -10px rgba(31, 27, 22, 0.18);
+}
+.moe-note__summary {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-3);
+  padding: var(--gap-4) var(--gap-5);
+  cursor: pointer;
+  list-style: none;
+  font-size: var(--fs-base);
+  color: #1F4F1A;
+}
+.moe-note__summary::-webkit-details-marker { display: none; }
+.moe-note__summary > span:nth-child(2) {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.moe-note__summary strong {
+  font-family: "Suez One", serif;
+  font-size: var(--fs-md);
+  letter-spacing: -0.01em;
+  color: #1F4F1A;
+}
+.moe-note__sub {
+  font-size: var(--fs-xs);
+  color: #4F6B47;
+  font-weight: 500;
+}
+.moe-note__icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+.moe-note__chev {
+  font-size: 1.2rem;
+  color: #4F8A4A;
+  transition: transform 0.25s var(--ease-out);
+  flex-shrink: 0;
+}
+.moe-note[open] .moe-note__chev { transform: rotate(180deg); }
+.moe-note__body {
+  padding: var(--gap-4) var(--gap-5) var(--gap-5);
+  border-top: 1px dashed #4F8A4A;
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--ink);
+  font-size: var(--fs-base);
+  line-height: 1.7;
+}
+.moe-note__body p { margin-bottom: var(--gap-3); }
+.moe-note__body p:last-child { margin-bottom: 0; }
+.moe-note__body ol {
+  padding-right: 1.5rem;
+  margin-bottom: var(--gap-3);
+}
+.moe-note__body li { margin-bottom: var(--gap-2); }
+.moe-note__body strong { color: #1F4F1A; }
+.moe-note__body a {
+  color: #1F4F1A;
+  border-bottom: 1.5px solid #4F8A4A;
+}
+.moe-note__body a:hover { background: rgba(79, 138, 74, 0.15); }
+
+/* ==========================================================
    10. Section blocks within a track
    ========================================================== */
 .section-block {
@@ -629,15 +705,20 @@ main {
   letter-spacing: -0.01em;
 }
 
-/* "What is it" prose */
+/* "What is it" prose — uses full available width */
 .prose {
-  max-width: var(--reading-max);
   font-size: var(--fs-md);
   line-height: 1.7;
   color: var(--ink-soft);
 }
 .prose p + p { margin-top: var(--gap-4); }
 .prose strong { color: var(--ink); font-weight: 700; }
+.prose a {
+  color: var(--accent-deep);
+  border-bottom: 1.5px solid var(--accent);
+  transition: background 0.2s var(--ease-out);
+}
+.prose a:hover { background: var(--accent-tint); }
 
 .facts-grid {
   display: grid;

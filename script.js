@@ -151,6 +151,21 @@
       )
       .join("");
 
+    const moeBlock = data.moeNote && typeof MOE_GEMINI_NOTE !== "undefined"
+      ? `
+        <details class="moe-note">
+          <summary class="moe-note__summary">
+            <span class="moe-note__icon" aria-hidden="true">🇮🇱</span>
+            <span>
+              <strong>${escapeHTML(MOE_GEMINI_NOTE.title)}</strong>
+              <span class="moe-note__sub">${escapeHTML(MOE_GEMINI_NOTE.summary)}</span>
+            </span>
+            <span class="moe-note__chev" aria-hidden="true">▾</span>
+          </summary>
+          <div class="moe-note__body">${MOE_GEMINI_NOTE.body}</div>
+        </details>`
+      : "";
+
     section.innerHTML = `
       <header class="track-header">
         <a href="#/" class="track-back">
@@ -166,6 +181,8 @@
         </h1>
         <div class="track-meta">${metaPills}</div>
       </header>
+
+      ${moeBlock}
 
       <section class="section-block" aria-labelledby="intro-${routeKey}">
         <header class="section-head">
